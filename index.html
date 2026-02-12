@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)http://192.168.60.40/web202601/20260129-userPage.html -->
-<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="zh-TW">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人首頁</title>
     <link rel="stylesheet" href="./個人首頁_files/mycss01.css">
@@ -77,10 +77,12 @@
             font-size: 24px;
         }
 
+        /* 修改 section02 */
         .section02 {
             position: relative;
-            height: 400px;
+            height: 400px; /* 增加高度以容納兩排圓形 */
             background-color: var(--graffiti-burnt-ochre);
+            padding: 20px;
         }
 
         .section02 .box01{
@@ -90,7 +92,7 @@
             background-color: var(--graffiti-wall-crack);
             border-radius: 50%;
             left: 20px;
-            top: 20px;
+            top: 50px;
             text-align: center;
             line-height: 300px;
         }
@@ -106,11 +108,45 @@
             background-color: var(--graffiti-wall-crack);
             border-radius: 50%;
             left: 340px;
-            top: 20px;
+            top: 50px;
             text-align: center;
             line-height: 300px;
         }
         .section02 .box02 a{
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        /* 新增 box03 */
+        .section02 .box03{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: var(--graffiti-wall-crack);
+            border-radius: 50%;
+            left: 660px;
+            top: 50px;
+            text-align: center;
+            line-height: 300px;
+        }
+        .section02 .box03 a{
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        /* 新增 box04 */
+        .section02 .box04{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: var(--graffiti-wall-crack);
+            border-radius: 50%;
+            left: 980px;
+            top: 50px;
+            text-align: center;
+            line-height: 300px;
+        }
+        .section02 .box04 a{
             text-decoration: none;
             font-size: 30px;
         }
@@ -139,7 +175,13 @@
         <div class="box02">
             <a href="http://192.168.60.40/web202601/20260203-ch03.html" target="_blank">ch02</a>
         </div>
+        <div class="box03">
+            <a href="#" target="_blank">ch03</a>
+        </div>
+        <div class="box04">
+            <a href="#" target="_blank">ch04</a>
+        </div>
     </div>
 
-
-</body></html>
+</body>
+</html>
