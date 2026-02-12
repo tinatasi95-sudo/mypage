@@ -1,0 +1,179 @@
+/* 基礎重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 頁面標題 - 固定在頂部 */
+.page-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+/* 滾動容器 */
+.scroll-container {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* 🎯 關鍵：卡片堆疊覆蓋效果 */
+.restaurant-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    
+    /* 🔥 關鍵：負邊距產生覆蓋效果 */
+    margin-bottom: -40px;
+    
+    /* 🔥 關鍵：每張卡片的 z-index 遞增 */
+    z-index: 1;
+}
+
+/* 為每張卡片設定不同的 z-index，讓後面的卡片覆蓋前面的 */
+.restaurant-card:nth-child(1) { z-index: 1; }
+.restaurant-card:nth-child(2) { z-index: 2; }
+.restaurant-card:nth-child(3) { z-index: 3; }
+.restaurant-card:nth-child(4) { z-index: 4; }
+.restaurant-card:nth-child(5) { z-index: 5; }
+.restaurant-card:nth-child(6) { z-index: 6; }
+.restaurant-card:nth-child(7) { z-index: 7; }
+.restaurant-card:nth-child(8) { z-index: 8; }
+
+/* 最後一張卡片不需要負邊距 */
+.restaurant-card:last-child {
+    margin-bottom: 0;
+}
+
+/* hover 效果：放大並提升到最上層 */
+.restaurant-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+    z-index: 999 !important; /* 滑過時永遠在最上層 */
+}
+
+/* 卡片圖片 */
+.card-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.restaurant-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+/* 卡片內容 */
+.card-content {
+    padding: 25px 30px 30px;
+}
+
+.restaurant-name {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.restaurant-phone,
+.restaurant-address {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-phone::before {
+    content: "📞 ";
+    margin-right: 5px;
+}
+
+.restaurant-address::before {
+    content: "📍 ";
+    margin-right: 5px;
+}
+
+.restaurant-description {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 24px;
+    }
+    
+    .restaurant-card {
+        margin-bottom: -30px; /* 手機上減少覆蓋程度 */
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .restaurant-name {
+        font-size: 20px;
+    }
+}
+
+/* 滾動條美化 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
